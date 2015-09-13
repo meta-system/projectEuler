@@ -1,5 +1,7 @@
 package projectEuler;
 
+import java.util.Arrays;
+
 public class P0008 {
 
 	public static void main(String[] args) {
@@ -26,25 +28,28 @@ public class P0008 {
 		long result = 0;
 		int[] digits = new int[1000];
 		int[] myDigits = new int[13];
-		long temp = 1;
+		long kTemp = 1;
+		long tTemp = 1;
 
 		for (int i = 0; i < bigString.length(); i++){ //convert the String to an int array
-			digits[i]= (int) bigString.charAt(i);
+			digits[i]= bigString.charAt(i) -48;
 		}
 		
-		for(int j = 0; j < digits.length - myDigits.length; j++){
+		for(int j = 0; j < digits.length - myDigits.length +1; j++){
 			System.arraycopy(digits, j, myDigits, 0, myDigits.length);
 			for (int k = 0; k < myDigits.length; k++){
-				temp *= myDigits[k];
-				if ((k == myDigits.length-1)&&(result < temp)){
-					result = temp;
+				kTemp *= myDigits[k];
+				if ((k == myDigits.length-1)&&(result < kTemp)){
+					result = kTemp;
+					kTemp = 1;
 				}
 			}
 		}
-		
+		System.out.println("main" + Arrays.toString(myDigits));
 		System.out.println("result: " + result );
 
 
 	}
+
 
 }
