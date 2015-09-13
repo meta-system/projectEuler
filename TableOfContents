@@ -1,7 +1,8 @@
 Table of Contents:
 
-P0001:	Multiples of 3 and 5			Sum of Multiples 3, 5, 1000
-P0002:	Even Fibonacci numbers			Even valued Fibonacci terms, 4000000L
-P0003:	Largest prime factor			600851475143, fairly long number
-P0004:	Largest palindrome product		product of two 3-digit numbers, 9009, 998001
-P0005:	Smallest multiple				evenly divisible, no remainder 1, 20
+P0001:	Multiples of 3 and 5		233168		Sum of Multiples 3, 5, 1000
+P0002:	Even Fibonacci numbers		4613732		Even valued Fibonacci terms, 4000000L
+P0003:	Largest prime factor		6857		600851475143, fairly long number
+P0004:	Largest palindrome product	906609		product of two 3-digit numbers, 9009, 998001
+P0005:	Smallest multiple			232792560	evenly divisible, no remainder 1, 20
+P0006:	Sum sqare difference		25164150	sum of squares, square of sums
