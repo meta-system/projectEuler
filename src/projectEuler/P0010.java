@@ -23,6 +23,7 @@ public class P0010 {
 		System.out.println("time in secs " + time);
 		System.out.println("count " + count);
 		System.out.println("sum of primes below 200000\n" + sum);
+		System.out.println("Warning!\nNext step may take up to a minute\n(or maybe more)\ndue to the amount of calculation needed!\n");
 		
 		
 		
