@@ -29,8 +29,7 @@ public class P0008 {
 		int[] digits = new int[1000];
 		int[] myDigits = new int[13];
 		long kTemp = 1;
-		long tTemp = 1;
-
+		
 		for (int i = 0; i < bigString.length(); i++){ //convert the String to an int array
 			digits[i]= bigString.charAt(i) -48;
 		}
@@ -43,7 +42,9 @@ public class P0008 {
 					result = kTemp;
 					kTemp = 1;
 				}
+				
 			}
+			kTemp = 1;
 		}
 		System.out.println("main" + Arrays.toString(myDigits));
 		System.out.println("result: " + result );
