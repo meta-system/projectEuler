@@ -1,7 +1,5 @@
 package projectEuler;
 
-import java.util.Arrays;
-
 public class P0008 {
 
 	public static void main(String[] args) {
@@ -46,7 +44,7 @@ public class P0008 {
 			}
 			kTemp = 1;
 		}
-		System.out.println("main" + Arrays.toString(myDigits));
+		
 		System.out.println("result: " + result );
 
 
