@@ -7,3 +7,4 @@ P0004:	Largest palindrome product	906609		product of two 3-digit numbers, 9009, 
 P0005:	Smallest multiple			232792560	evenly divisible, no remainder 1, 20
 P0006:	Sum sqare difference		25164150	sum of squares, square of sums
 P0007:	10001st prime				104743		prime number, 6th prime is 13, 2
+P0008:	Largest product in a series				5832, greatest product, value, 13 adjacent 1000 digits
