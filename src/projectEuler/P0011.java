@@ -144,9 +144,11 @@ public class P0011 {
 		System.out.format("left - right finished in:%n%03.2f" + " sec%n", time);
 		
 		long result = 0;
+		int resultI = 0;
 		for (int i = 0; i < bigNumbs.length; i++){
 			if  (result < bigNumbs[i]){
 				result = bigNumbs[i];
+				resultI = i;
 			}
 		}
 		
@@ -157,7 +159,7 @@ public class P0011 {
 		
 		System.out.print(myNumbs[16][1] + " ");
 		
-		System.out.println("\nresult: " + result );
+		System.out.println("\nresult:" + result + " " + resultI);
 
 
 	}
