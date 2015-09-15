@@ -31,18 +31,29 @@ public class P0011 {
 
 		Scanner sc = new Scanner(myString);
 		sc.useDelimiter(" ");
-
+		
+		long startTime = System.currentTimeMillis();
+		
 		int[][] myNumbs = new int [20][20];
 		for (int i = 0; i < myNumbs.length; i++){
 			for(int j = 0; j < myNumbs[i].length; j++){
 				myNumbs[i][j] = sc.nextInt();
-				System.out.format("%02d ", myNumbs[i][j]);
+				//System.out.format("%02d ", myNumbs[i][j]);
 			}
-			System.out.println();
+			//System.out.println();
 		}
 		
 		sc.close();
-
+		long endTime   = System.currentTimeMillis();
+		long totalTime = endTime - startTime;
+		double time = (totalTime /1000.0);
+		
+		System.out.format("Input finished in:%n%03.2f" + " sec%n", time);
+		
+		
+		
+		
+		
 		long [] bigNumbs = new long [4];
 		long temp;
 
@@ -54,25 +65,51 @@ public class P0011 {
 		
 		offset = 3;
 		for (int i = 0; i < myNumbs.length - offset; i++){
-			for (int j = 0; i < myNumbs[i].length - offset; j++){
+			for (int j = 0; j < myNumbs[i].length - offset; j++){
 				temp = myNumbs[i][j];
 				for(int k = 0; k < offset; k++){
 					temp *= myNumbs[i+k][j+k];
 				}
+				if (temp > bigNumbs[0]){
+					bigNumbs[0] = temp;
+				}
+			}
+		}
+		
+		endTime   = System.currentTimeMillis();
+		totalTime = endTime - startTime;
+		time = (totalTime /1000.0);
+		System.out.format("diagonal lo -> ru finished in:%n%03.2f" + " sec%n", time);
+		
+		//diagonal lu -> ro
+		offset = 3;
+		for (int i = offset; i < myNumbs.length; i++){
+			for (int j = 0; j < myNumbs[i].length - offset; j++){
+				temp = myNumbs[i][j];
+
+				for(int k = 0; k < offset; k++){
+					temp *= myNumbs[i-k][j+k];
+				}
+
 				if (temp > bigNumbs[1]){
 					bigNumbs[1] = temp;
 				}
 			}
 		}
-
-		//diagonal lu -> ro
+		
+		endTime   = System.currentTimeMillis();
+		totalTime = endTime - startTime;
+		time = (totalTime /1000.0);
+		System.out.format("diagonal lu -> ro finished in:%n%03.2f" + " sec%n", time);
+		
+		// up -> down
 		offset = 3;
-		for (int i = offset; i < myNumbs.length; i++){
-			for (int j = 0; i < myNumbs[i].length - offset; j++){
+		for (int i = 0; i < myNumbs.length - offset; i++){
+			for (int j = 0; j < myNumbs[i].length; j++){
 				temp = myNumbs[i][j];
 
 				for(int k = 0; k < offset; k++){
-					temp *= myNumbs[i-k][j-k];
+					temp *= myNumbs[i+k][j];
 				}
 
 				if (temp > bigNumbs[2]){
@@ -80,15 +117,19 @@ public class P0011 {
 				}
 			}
 		}
-
-		// up -> down
+		
+		endTime   = System.currentTimeMillis();
+		totalTime = endTime - startTime;
+		time = (totalTime /1000.0);
+		System.out.format("up -> down finished in:%n%03.2f" + " sec%n", time);
+		//left - right
 		offset = 3;
-		for (int i = 0; i < myNumbs.length - offset; i++){
-			for (int j = 0; i < myNumbs[i].length; j++){
+		for (int i = 0; i < myNumbs.length; i++){
+			for (int j = 0; j < myNumbs[i].length - offset; j++){
 				temp = myNumbs[i][j];
 
 				for(int k = 0; k < offset; k++){
-					temp *= myNumbs[i+k][j];
+					temp *= myNumbs[i][j+k];
 				}
 
 				if (temp > bigNumbs[3]){
@@ -96,22 +137,11 @@ public class P0011 {
 				}
 			}
 		}
-
-		//left - right
-		offset = 3;
-		for (int i = 0; i < myNumbs.length; i++){
-			for (int j = 0; i < myNumbs[i].length - offset; j++){
-				temp = myNumbs[i][j];
-
-				for(int k = 0; k < offset; k++){
-					temp *= myNumbs[i][j+k];
-				}
-
-				if (temp > bigNumbs[4]){
-					bigNumbs[4] = temp;
-				}
-			}
-		}
+		
+		endTime   = System.currentTimeMillis();
+		totalTime = endTime - startTime;
+		time = (totalTime /1000.0);
+		System.out.format("left - right finished in:%n%03.2f" + " sec%n", time);
 		
 		long result = 0;
 		for (int i = 0; i < bigNumbs.length; i++){
@@ -119,6 +149,11 @@ public class P0011 {
 				result = bigNumbs[i];
 			}
 		}
+		
+		endTime   = System.currentTimeMillis();
+		totalTime = endTime - startTime;
+		time = (totalTime /1000.0);
+		System.out.format("all finished in:%n%03.2f" + " sec%n", time);
 		
 		System.out.print(myNumbs[16][1] + " ");
 		
