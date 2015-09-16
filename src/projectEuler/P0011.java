@@ -61,33 +61,34 @@ public class P0011 {
 
 		temp = 0; 
 		
-		int offset;
-		
+		int offset = 4;
+		int tempI = 0, tempJ = 0;
 		offset = 3;
 		for (int i = 0; i < myNumbs.length - offset; i++){
 			for (int j = 0; j < myNumbs[i].length - offset; j++){
 				temp = myNumbs[i][j];
-				for(int k = 0; k < offset; k++){
+				for(int k = 1; k < offset; k++){
 					temp *= myNumbs[i+k][j+k];
 				}
 				if (temp > bigNumbs[0]){
 					bigNumbs[0] = temp;
+					tempI=i;
+					tempJ=j;
 				}
 			}
 		}
-		
+		System.out.print("i " + tempI + " j " + tempJ);
 		endTime   = System.currentTimeMillis();
 		totalTime = endTime - startTime;
 		time = (totalTime /1000.0);
 		System.out.format("diagonal lo -> ru finished in:%n%03.2f" + " sec%n", time);
 		
 		//diagonal lu -> ro
-		offset = 3;
 		for (int i = offset; i < myNumbs.length; i++){
 			for (int j = 0; j < myNumbs[i].length - offset; j++){
 				temp = myNumbs[i][j];
 
-				for(int k = 0; k < offset; k++){
+				for(int k = 1; k < offset; k++){
 					temp *= myNumbs[i-k][j+k];
 				}
 
@@ -103,12 +104,11 @@ public class P0011 {
 		System.out.format("diagonal lu -> ro finished in:%n%03.2f" + " sec%n", time);
 		
 		// up -> down
-		offset = 3;
 		for (int i = 0; i < myNumbs.length - offset; i++){
 			for (int j = 0; j < myNumbs[i].length; j++){
 				temp = myNumbs[i][j];
 
-				for(int k = 0; k < offset; k++){
+				for(int k = 1; k < offset; k++){
 					temp *= myNumbs[i+k][j];
 				}
 
@@ -122,13 +122,14 @@ public class P0011 {
 		totalTime = endTime - startTime;
 		time = (totalTime /1000.0);
 		System.out.format("up -> down finished in:%n%03.2f" + " sec%n", time);
+		
+		
 		//left - right
-		offset = 3;
 		for (int i = 0; i < myNumbs.length; i++){
 			for (int j = 0; j < myNumbs[i].length - offset; j++){
 				temp = myNumbs[i][j];
 
-				for(int k = 0; k < offset; k++){
+				for(int k = 1; k < offset; k++){
 					temp *= myNumbs[i][j+k];
 				}
 
@@ -159,6 +160,7 @@ public class P0011 {
 		
 		System.out.print(myNumbs[16][1] + " ");
 		
+		System.out.printf("\nresult: %,8d %d" ,result, resultI);
 		System.out.println("\nresult:" + result + " " + resultI);
 
 
