@@ -57,13 +57,14 @@ public class P0011 {
 		long [] bigNumbs = new long [4];
 		long temp;
 
-		//diagonal lo -> ru
-
+		
 		temp = 0; 
 		
-		int offset = 4;
+		int offset = 3;
+		int kOffset = 4;
 		int tempI = 0, tempJ = 0;
-		offset = 3;
+		
+		//diagonal lo -> ru
 		for (int i = 0; i < myNumbs.length - offset; i++){
 			for (int j = 0; j < myNumbs[i].length - offset; j++){
 				temp = myNumbs[i][j];
@@ -88,7 +89,7 @@ public class P0011 {
 			for (int j = 0; j < myNumbs[i].length - offset; j++){
 				temp = myNumbs[i][j];
 
-				for(int k = 1; k < offset; k++){
+				for(int k = 1; k < kOffset; k++){
 					temp *= myNumbs[i-k][j+k];
 				}
 
@@ -108,7 +109,7 @@ public class P0011 {
 			for (int j = 0; j < myNumbs[i].length; j++){
 				temp = myNumbs[i][j];
 
-				for(int k = 1; k < offset; k++){
+				for(int k = 1; k < kOffset; k++){
 					temp *= myNumbs[i+k][j];
 				}
 
@@ -129,7 +130,7 @@ public class P0011 {
 			for (int j = 0; j < myNumbs[i].length - offset; j++){
 				temp = myNumbs[i][j];
 
-				for(int k = 1; k < offset; k++){
+				for(int k = 1; k < kOffset; k++){
 					temp *= myNumbs[i][j+k];
 				}
 
