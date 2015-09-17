@@ -22,10 +22,14 @@ public class P0012 {
 			i++;
 			result += i;
 
-			for (long j = 1; j <= result; j++){
+			for (long j = 1; j <= Math.sqrt(result); j++){
 				if (result % j == 0){
 					divCount++;
 					divisors.add(j);
+					if (Math.sqrt(result)!= j){
+						divCount++;
+						divisors.add(result/j);
+					}
 				}
 				
 			}
