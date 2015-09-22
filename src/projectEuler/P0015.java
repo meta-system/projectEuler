@@ -2,8 +2,8 @@ package projectEuler;
 
 public class P0015 {
 	
-	public static int dimX = 3; //count of squares along the x axis +1
-	public static int dimY = 3; // "	"  "       "     "   y "    "
+	public static int dimX = 20; //count of squares along the x axis +1
+	public static int dimY = 20; // "	"  "       "     "   y "    "
 	
 	public static void main(String[] args) {
 		int result = ways(dimX,dimY);
@@ -17,7 +17,8 @@ public class P0015 {
 		} else {
 			sumX = ways(x-1, y);
 			sumY = ways(x, y-1);
-			return (sumX + sumY);
+			//System.out.println("FunctionReturn");
+			return (sumX + sumY);			
 		}		
 	}
 }
