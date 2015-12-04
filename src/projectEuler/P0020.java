@@ -3,35 +3,45 @@ package projectEuler;
 import java.math.BigInteger;
 import java.util.Scanner;
 
-/**
- * Created by Christian on 01.12.2015.
- */
 public class P0020 {
 
-    public static final int startNumb = 12;
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println(sumOfDigits(factorial(sc.nextInt())));
+    }
 
-    public static void main (String [] args){
-        BigInteger[] myBigInts = new BigInteger[startNumb + 1];
+    public static BigInteger factorial(int i) {
+        BigInteger n = BigInteger.ONE;
 
-        for (BigInteger elem : myBigInts){
-            elem = BigInteger.ONE;
+        for (int j = 1; j <= i; j++) {
+            n = n.multiply(BigInteger.valueOf(j));
+            if (j%10 ==0){
+                System.out.println("\n" + j + " " + n);
+            }
         }
-        for (int i = 0; i < myBigInts.length; i++) {
-            myBigInts[i] = BigInteger.ONE;
+
+        return n;
+    }
+
+    public static int sumOfDigits(BigInteger input){
+        int sum = 0;
+        int[] myInput = stringToDigits(input.toString());
+
+        for (int aMyInput : myInput) {
+            sum += aMyInput;
         }
 
-        for (int i = 2; i < startNumb; i++) {
-            System.out.println(myBigInts[i] + " " + i);
-            myBigInts[i+1] = myBigInts[i].multiply(BigInteger.valueOf(i));
-        }
-        System.out.println(myBigInts[myBigInts.length] + "\n");
+        return sum;
+    }
 
-//        int iFact = 1;
-//        for (int i = 1; i < startNumb; i++) {
-//            System.out.println(iFact + " " + i);
-//            iFact *= i;
-//        }
-//        System.out.println(iFact);
+    public static int[] stringToDigits(String myString){
+        int[] digits = new int[myString.length()];
+
+        for (int i = 0; i < myString.length(); i++){ //convert the String to an int array
+            digits[i]= myString.charAt(i) -48;
+        }
+
+        return digits;
     }
 
 }
